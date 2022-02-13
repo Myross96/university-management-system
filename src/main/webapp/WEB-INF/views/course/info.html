@@ -1,0 +1,35 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+<title>Course form</title>
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container w-50 border bg-light mt-4 rounded">
+        <form action="#" th:object="${course}" method="get">
+            <!-- Course name input -->
+            <div class="form-outline mt-4">
+                <input type="text" id="name" class="form-control" th:value="${course.name}" /> 
+                <label class="form-label" for="name">Course name</label>
+            </div>
+
+            <!-- Course description input -->
+            <div class="form-outline">
+                <textarea class="form-control" id="description" rows="3" th:text="${course.description}"></textarea> 
+                <label class="form-label" for="description">Course description</label>
+            </div>
+            
+        </form>
+    </div>
+
+</body>
+</html>

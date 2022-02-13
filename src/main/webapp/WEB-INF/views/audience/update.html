@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Create new audiences</title>
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container w-50 border bg-light mt-4 rounded">
+        <form action="#" th:action="@{/audiences/update}" th:object="${audience}"
+            method="POST">
+            <!-- Address input -->
+            <div class="form-outline mb-4 mt-4">
+                <input type="number" th:field="*{number}"
+                    placeholder="Audience number" id="number" class="form-control" /> 
+                    <label class="form-label" for="number">Number</label>
+            </div>
+
+            <!-- Email input -->
+            <div class="form-outline mb-4 mt-4">
+                <input type="number" th:field="*{capacity}"
+                    placeholder="Audience capacity" id="capacity" class="form-control" />
+                    <label class="form-label" for="number">Capacity</label>
+            </div>
+            
+            <div class="form-outline d-none">
+                <input type="number" th:field="*{id}"
+                    placeholder="Audience capacity" id="id" class="form-control" />
+                    <label class="form-label" for="number">Id</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update
+                audience</button>
+
+        </form>
+    </div>
+
+</body>
+</html>

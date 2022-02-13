@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Create group</title>
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container w-50 border bg-light mt-4 rounded">
+        <form action="#" th:action="@{/groups/update}" th:object="${group}"
+            method="POST">
+            
+            <div class="form-outline d-none">
+                <input type="text" th:field="*{id}" placeholder="Group id"
+                    id="id" class="form-control">
+            </div>
+
+            <div class="form-outline mb-2 w-25 mt-4">
+                <input type="text" th:field="*{name}" placeholder="Group name"
+                    id="name" class="form-control">
+            </div>
+            
+            <div class="form-outline mb-2 w-25 mt-4">
+                <select class="form-control" size="5" name="courses" multiple required>
+                    <option th:each="course: ${allCourses}"
+                        th:value="${course.id}"
+                        th:text=${course.name}
+                        th:selected="${group.courses.contains(course)}"
+                        ></option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Update group</button>
+        </form>
+    </div>
+</body>
+</html>

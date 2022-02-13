@@ -1,0 +1,85 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<title>Student form</title>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container w-50 border bg-light mt-4 rounded">
+		<form action="#" th:object="${student}" method="get">
+            <div class="text-right">
+			<a th:href="@{/students/{id}/calendar(id=${student.id})}"
+				class="btn btn-primary">Schedule</a>
+			</div>	
+			<div class="row mb-4 mt-4 gx-2">
+				<div class="col">
+					<div class="form-outline">
+						<input type="text" id="firstName" class="form-control"
+							th:value="${student.firstName}" /> <label class="form-label"
+							for="firstName">First name</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-outline">
+						<input type="text" id="lastName" class="form-control"
+							th:value="${student.lastName}" /> <label class="form-label"
+							for="studentLastName">Last name</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-outline mb-4 w-25">
+				<input type="date" id="birhtDate" class="form-control"
+					th:value="${student.birthDate}" /> <label class="form-label"
+					for="birthDate">Birth date</label>
+			</div>
+
+			<!-- Gender input -->
+			<div class="form-outline mb-4">
+				<input type="text" id="gender" class="form-control"
+					th:value="${student.gender}" /> <label class="form-label"
+					for="gender">Gender</label>
+
+			</div>
+			<!-- Address input -->
+			<div class="form-outline mb-4">
+				<input type="text" id="address" class="form-control"
+					th:value="${student.address}" /> <label class="form-label"
+					for="address">Address</label>
+			</div>
+
+			<!-- Email input -->
+			<div class="form-outline mb-4">
+				<input type="email" id="email" class="form-control"
+					th:value="${student.email}" /> <label class="form-label"
+					for="email">Email</label>
+			</div>
+
+			<!-- Post code input -->
+			<div class="form-outline mb-4">
+				<input type="text" id="postCode" class="form-control"
+					th:value="${student.postCode}" /> <label class="form-label"
+					for="postCode">Post code</label>
+			</div>
+
+			<!-- Post experience -->
+			<div class="form-outline mb-4 w-25">
+				<input type="text" id="group" class="form-control"
+					th:value="${student.group.name}" /> <label class="form-label"
+					for="group">Group</label>
+			</div>
+
+		</form>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+<title>Lecture form</title>
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container w-50 border bg-light mt-4 rounded">
+        <form action="#" th:object="${lecture}" method="get">   
+             
+            <div class="form-outline mt-4 mb-2 w-75">
+                <input type="text" id="lectureCourse" class="form-control"
+                    th:value="${lecture.course.name}" /> <label class="form-label"
+                    for="gender">Course</label>
+            </div>
+            
+            <div class="form-outline mb-2 w-75">
+                <input type="text" id="teacher" class="form-control"
+                    th:value="${lecture.teacher.firstName} + ' ' + ${lecture.teacher.lastName}" /> <label class="form-label"
+                    for="teacher">Teacher</label>
+            </div>
+            
+            <div class="form-outline mb-2 w-25">
+                <input type="date" id="date" class="form-control"
+                    th:value="${lecture.date}" /> <label class="form-label"
+                    for="date">Date</label>
+            </div>
+            
+            <div class="form-outline mb-2 w-75">
+                <input type="number" id="audienceNumber" class="form-control"
+                    th:value="${lecture.audience.number}" /> <label class="form-label"
+                    for="audienceNumber">Audience number</label>
+            </div>
+            
+            <div class="form-outline mb-2 w-75">
+                <input type="text" id="teacher" class="form-control"
+                    th:value="${lecture.lectureTime.startTime} + '-' + ${lecture.lectureTime.endTime}" /> <label class="form-label"
+                    for="teacher">Lecture time</label>
+            </div>
+            
+            <div class="form-outline">
+                <select multiple class="form-control" id="groups">
+                    <option th:each="group : ${lecture.groups}"           
+                            th:value="${group.name}"
+                            th:text="${group.name}"></option>
+                </select> <label class="form-label" for="groups">List of
+                    students</label>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
